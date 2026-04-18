@@ -4,10 +4,9 @@
 	mariadb mariadb-down \
 	postgres postgres-down \
 	redis redis-down \
-	ftp-server ftp-server-down \
-	nextcloud nextcloud-down
+	ftp-server ftp-server-down
 
-SERVICES = portainer nginx mariadb postgres redis ftp-server nextcloud
+SERVICES = portainer nginx mariadb postgres redis ftp-server
 
 $(SERVICES):
 	docker compose -f $@/docker-compose.yml up -d
