@@ -3,8 +3,6 @@ services:
     image: nextcloud:stable-fpm-alpine
     container_name: nextcloud-stable-fpm-alpine
     restart: unless-stopped
-    # ports:
-    #   - "9000:9000"
     environment:
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
       MYSQL_DATABASE: "${MYSQL_DATABASE}"
