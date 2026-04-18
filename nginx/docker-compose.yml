@@ -7,5 +7,7 @@ services:
         - "80:80"
       volumes:
         - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
-        - ./config/conf.d:/etc/nginx/conf.d
+        - ./config/templates:/etc/nginx/templates:ro
+      environment:
+        PORTAINER_UPSTREAM: "${PORTAINER_UPSTREAM}"
       network_mode: bridge
