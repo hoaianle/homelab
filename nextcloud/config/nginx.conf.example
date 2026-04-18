@@ -6,7 +6,7 @@ events {
 
 http {
     upstream php-handler {
-        server 172.17.0.1:9000;
+        server nextcloud:9000;
         #server unix:/run/php/php8.2-fpm.sock;
     }
 
@@ -139,7 +139,7 @@ http {
             include fastcgi_params;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             fastcgi_param PATH_INFO $path_info;
-            fastcgi_param HTTPS on;
+            fastcgi_param HTTPS of;
 
             fastcgi_param modHeadersAvailable true;         # Avoid sending the security headers twice
             fastcgi_param front_controller_active true;     # Enable pretty urls

@@ -2,9 +2,9 @@ services:
   nextcloud:
     image: nextcloud:stable-fpm-alpine
     container_name: nextcloud-stable-fpm-alpine
-    restart: always
-    ports:
-      - "9000:9000"
+    restart: unless-stopped
+    # ports:
+    #   - "9000:9000"
     environment:
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
       MYSQL_DATABASE: "${MYSQL_DATABASE}"
@@ -14,11 +14,12 @@ services:
     volumes:
       - ./nextcloud_data:/var/www/html
       - "${NEXTCLOUD_USER_DATA_DIR}:/var/www/html/data"
-    network_mode: bridge
+    networks:
+      - nextcloud
   nginx:
     image: nginx:alpine-slim
     container_name: nextcloud-nginx
-    restart: always
+    restart: unless-stopped
     ports:
       - "8080:80"
     depends_on:
@@ -28,4 +29,8 @@ services:
       - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nextcloud_data:/var/www/html
       - "${NEXTCLOUD_USER_DATA_DIR}:/var/www/html/data"
-    network_mode: bridge
+    networks:
+      - nextcloud
+
+networks:
+  nextcloud:
