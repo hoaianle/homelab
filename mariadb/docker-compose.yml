@@ -8,5 +8,5 @@ services:
       - "3306:3306"
     volumes:
       - "${MARIADB_DATA}:/var/lib/mysql"
-      - ~/Code/mysql-backup:/mysql-backup
+      - "${BACKUP_TOOL}:/mysql-backup"
     network_mode: bridge
