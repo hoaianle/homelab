@@ -11,4 +11,5 @@ services:
         - /etc/letsencrypt:/etc/letsencrypt:ro
       environment:
         PORTAINER_UPSTREAM: "${PORTAINER_UPSTREAM}"
+        PORTAINER_SERVER_NAME: "${PORTAINER_SERVER_NAME}"
       network_mode: bridge
