@@ -22,19 +22,13 @@ main() {
     echo "Starting full backup for database '$DB_NAME'..."
     start_time=$(date +%s%3N)
 
-    # Perform a full database dump into one file
-    # -h: host, -U: user, -f: output file
     pg_dump -h "$DB_HOST" -U "$DB_USER" $DUMP_EXTRA_ARGS -f "$dump_file" "$DB_NAME"
 
-    if [ $? -eq 0 ]; then
-        end_time=$(date +%s%3N)
-        duration=$((end_time - start_time))
-        echo "Full backup completed successfully in $duration ms."
-        echo "File saved to: $dump_file"
-    else
-        echo "Error: Backup failed."
-        exit 1
-    fi
+    end_time=$(date +%s%3N)
+    duration=$((end_time - start_time))
+
+    echo "Backup process finished in $duration ms."
+    echo "File: $dump_file"
 }
 
 main
