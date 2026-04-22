@@ -4,7 +4,6 @@ ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # Load configuration from an external file
 source $ROOT_DIR/config/backup.conf
 
-# Sprogram="psql"
 dump_program="pg_dump"
 
 current_timestamp=$(date +%s%3N)
