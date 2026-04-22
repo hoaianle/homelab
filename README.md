@@ -5,7 +5,6 @@ A simple setup for my homelab using `docker-compose`.
 ## Requirements
 
 1. Install [Docker](https://docs.docker.com/engine/install/)
-2. Database backup tool (optional) [mysql-backup](https://github.com/HOAIAN2/mysql-backup)
 
 ## Usage
 

@@ -1,0 +1,9 @@
+SERVER_TYPE=mariadb # Change to mysql if needed
+MAX_JOBS=100
+
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+
+DUMP_EXTRA_ARGS="--compress --skip-ssl --quick --single-transaction"

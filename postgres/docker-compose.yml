@@ -1,10 +1,10 @@
 services:
   postgres:
-    image: postgres:15-alpine
+    image: postgres:15-trixie
     container_name: postgres
     volumes:
       - "${POSTGRES_DATA}:/var/lib/postgresql/data"
-      - "${POSTGRES_DUMPS}:/dumps"
+      - "${BACKUP_TOOL}:/postgresql-backup"
     environment:
       POSTGRES_USER: "${POSTGRES_USER}"
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
