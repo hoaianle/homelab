@@ -32,3 +32,19 @@ Run restore with default psql
 ```bash
 time psql -h <HOST> -U <USER> -d <DB_NAME> < /path/to/your/backup.sql
 ```
+
+## Automation
+
+To run this backup automatically at 10:00 AM every day, add a cron job:
+
+Open your crontab:
+
+```bash
+crontab -e
+```
+
+Add the following line at the bottom (ensure you use the absolute path to your script):
+
+```bash
+00 10 * * * /bin/bash /absolute/path/to/your/backup.sh
+```
