@@ -16,6 +16,8 @@ fi
 current_timestamp=$(date +%s%3N)
 
 dump_folder="$ROOT_DIR/dumps/${DB_NAME}-${current_timestamp}"
+single_dump_file="$ROOT_DIR/dumps/${DB_NAME}-${current_timestamp}.sql"
+DUMP_MODE=${DUMP_MODE:-tables}
 
 create_dump_folder() {
     if [ ! -d "$dump_folder" ]; then
@@ -41,7 +43,15 @@ dump_table() {
     echo "Backup of table '$table_name' completed in $duration ms."
 }
 
-main() {
+dump_single_file() {
+    start_time=$(date +%s%3N)
+    $dump_program -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWORD" $DUMP_EXTRA_ARGS "$DB_NAME" > "$single_dump_file"
+    end_time=$(date +%s%3N)
+    duration=$((end_time - start_time))
+    echo "Backup completed in $duration ms."
+}
+
+dump_tables() {
     create_dump_folder
     get_list_tables
     if [ -z "$tables" ]; then
@@ -68,6 +78,14 @@ main() {
     end_time=$(date +%s%3N)
     duration=$((end_time - start_time))
     echo "Backup completed in $duration ms."
+}
+
+main() {
+    if [ "$DUMP_MODE" = "single" ]; then
+        dump_single_file
+    elif [ "$DUMP_MODE" = "tables" ]; then
+        dump_tables
+    fi
 }
 
 main

@@ -7,3 +7,4 @@ DB_PASSWORD=
 DB_NAME=
 
 DUMP_EXTRA_ARGS="--compress --skip-ssl --quick --single-transaction"
+DUMP_MODE=single # tables or single
