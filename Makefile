@@ -1,6 +1,6 @@
 .PHONY: up down \
 	portainer portainer-down \
-	nginx nginx-down \
+	nginx nginx-down nginx-reload \
 	mariadb mariadb-down \
 	postgres postgres-down \
 	redis redis-down \
@@ -20,3 +20,8 @@ up:
 
 down:
 	for s in $(SERVICES); do docker compose -f $$s/docker-compose.yml down; done
+
+# Special commands
+
+nginx-reload:
+	docker exec -d nginx nginx -s reload
