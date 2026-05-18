@@ -6,5 +6,8 @@ services:
       - "6379:6379"
     restart: unless-stopped
     volumes:
-      - "./redis_data:/data"
+      - redis_data:/data
     network_mode: bridge
+
+volumes:
+  redis_data:

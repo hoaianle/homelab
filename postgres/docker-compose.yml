@@ -3,7 +3,7 @@ services:
     image: postgres:15-trixie
     container_name: postgres
     volumes:
-      - "${POSTGRES_DATA}:/var/lib/postgresql/data"
+      - postgres_data:/var/lib/postgresql/data
       - "${BACKUP_TOOL}:/postgresql-backup"
     environment:
       POSTGRES_USER: "${POSTGRES_USER}"
@@ -11,3 +11,6 @@ services:
     ports:
       - "5432:5432"
     network_mode: bridge
+
+volumes:
+  postgres_data:
