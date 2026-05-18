@@ -3,6 +3,9 @@ server {
     listen [::]:80;
     server_name ${PORTAINER_SERVER_NAME};
 
+    access_log /var/log/nginx/portainer-access.log json_combined buffer=16k flush=1s;
+    error_log /var/log/nginx/portainer-error.log warn;
+
     location / {
         proxy_pass ${PORTAINER_UPSTREAM};
         proxy_set_header Host $host;
