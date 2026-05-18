@@ -10,4 +10,4 @@ services:
     network_mode: bridge
 
 volumes:
-  redis_data:
+  data:

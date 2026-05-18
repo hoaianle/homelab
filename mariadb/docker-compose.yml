@@ -7,9 +7,9 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - data:/var/lib/mysql
       - "${BACKUP_TOOL}:/mysql-backup"
     network_mode: bridge
 
 volumes:
-  mariadb_data:
+  data:
