@@ -30,6 +30,14 @@ Run backup with config file
 ./backup.sh
 ```
 
+### Run inside Docker
+
+If the tool is mounted into a MySQL/MariaDB container, run the backup as your host user so the dump files aren't owned by root:
+
+```bash
+docker exec -u $(id -u):$(id -g) mysql-container-name /path/to/backup.sh
+```
+
 Run restore with default mysql
 
 ```console
