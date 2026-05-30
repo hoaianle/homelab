@@ -24,4 +24,4 @@ down:
 # Special commands
 
 nginx-reload:
-	docker exec -it nginx nginx -s reload
+	docker exec -it nginx sh -c "nginx -t && nginx -s reload"
