@@ -4,7 +4,7 @@ services:
     container_name: portainer-lts
     restart: always
     ports:
-      - "172.17.0.1:8081:9000"
+      - "172.17.0.1:6081:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - data:/data

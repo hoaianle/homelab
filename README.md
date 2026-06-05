@@ -20,4 +20,4 @@ Each service is a simple `docker-compose` setup. Just create `.env` file base on
 
 ### Port mapping rules
 
-Every service uses `network_mode: bridge`. Each service runs on its own port, except for web services. If a service is a web service, the port should not map to `80` and should map to something like `8080`, `8081`, etc.
+Every service uses `network_mode: bridge`. Each service runs on its own port, except for web services. If a service is a web service, the port should not map to `80` and should map to something like `6080`, `6081`, etc.
