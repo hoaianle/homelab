@@ -16,7 +16,7 @@ export PGPASSWORD="$DB_PASSWORD"
 current_timestamp=$(date +%s%3N)
 dump_file="$ROOT_DIR/dumps/${DB_NAME}/${current_timestamp}.sql"
 
-mkdir -p "$ROOT_DIR/dumps"
+mkdir -p "$ROOT_DIR/dumps/${DB_NAME}"
 
 main() {
     echo "Starting full backup for database '$DB_NAME'..."
