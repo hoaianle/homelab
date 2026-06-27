@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Load configuration from an external file
