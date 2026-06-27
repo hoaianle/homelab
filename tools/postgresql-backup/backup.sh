@@ -9,13 +9,12 @@ fi
 dump_program="pg_dump"
 
 current_timestamp=$(date +%s%3N)
-dump_folder="$ROOT_DIR/dumps/${DB_NAME}-${current_timestamp}"
 
 # Export password for non-interactive mode
 export PGPASSWORD="$DB_PASSWORD"
 
 current_timestamp=$(date +%s%3N)
-dump_file="$ROOT_DIR/dumps/${DB_NAME}-${current_timestamp}.sql"
+dump_file="$ROOT_DIR/dumps/${DB_NAME}/${current_timestamp}.sql"
 
 mkdir -p "$ROOT_DIR/dumps"
 
